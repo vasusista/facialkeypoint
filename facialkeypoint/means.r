@@ -1,0 +1,5 @@
+load('data.Rd')
+p           <- matrix(data=colMeans(d.train, na.rm=T), nrow=nrow(d.test), ncol=ncol(d.train), byrow=T)
+colnames(p) <- names(d.train)
+predictions <- data.frame(ImageId = 1:nrow(d.test), p)
+write.csv(predictions, file="predictions_patches.csv", quote=F, row.names=F)
